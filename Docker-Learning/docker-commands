@@ -1,5 +1,77 @@
 DOcker Commands
 
+1. installlation commands
+
+
+apt docker install docker.io
+
+apt remove docker.io -y
+
+
+2. Conatiner Management Commands
+
+docker --version
+
+docker pull ubuntu
+
+docker ps 
+
+docker run -it -d ubuntu
+
+docker run -it -d --name linux-container ubuntu
+
+docker pull nginx
+
+docker run -it -d --name nignx-xisys -p 80:80 nginx (image Name)
+
+docker exec -it nginx bash (where nginx = continer name)
+
+docker stop continer-id or name
+
+docker start container-id or name
+
+docker ps -a     // list all containers
+
+Docker Stop // shut down all process and then stop continer   & Docker kill // iimdeitaley kills the container
+
+
+docker restart  container-id or name
+
+
+docker rm  container-id or name
+
+
+docker rm -f container-id
+
+docker committ conatiner-id my-conatiner-image   // to create a new image out of a running conatiner
+
+
+3. Conatiner Tagging 
+
+Docker login
+
+docker tag image-name nginx/nginx001
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+My Work: 06-2022
+
+docker images   // to see all images present on the machine
+
 docker run -it ubuntu bash
 
 https://docs.docker.com/get-started/
