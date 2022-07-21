@@ -1,0 +1,49 @@
+Terraform
+
+Terraform = provider_resource { configs 
+key1: Value1
+Key2: Value2
+}
+
+all resources => Create and Destory all resources specified in the main.tf 
+
+Destroy a Particular resource => pass a paramter to destroy command
+
+
+Mostly we use Terraform Apply command to make changes not Destory commands
+
+
+Delete or Comment a resource within the Main.tf file
+
+
+Terraform Or HCl language is declartive 
+
+
+.terraform directory contains all plugins = created in result of Terraform init command
+
+terraform.tfstate = state of the current resoruces created in the AWS or Azure = provider and all of the resources
+
+
+
+terraform init = intialize and download the Provider plugins
+
+terraform plan = Dry Run and Sainty Checking
+
+Terraform Apply = create Or Apply resources
+
+terraform apply -target aws_instance.web-server-instance = created one single resource
+
+terraform destroy 
+
+terraform destroy -target aws_instance.web-server-instance = deleted one single resource
+
+
+
+terraform state list = list of all the resources in terraform
+
+terraform state show elastic_ip
+
+terraform refresh = get the output without beaing creating or modifying resources
+
+
+

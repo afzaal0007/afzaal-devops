@@ -1,0 +1,20 @@
+tcp conatins securenvoy.site
+
+filter based on tcp
+
+
+ip.addr ==172.18.92.34   destination Ip Address
+
+ go to captured secion => transmission => Source Port => Desitination Port =>  
+ 
+ tcp conatins orgnization
+ 
+ find the Post  http post and get request for Orginzation API
+ 
+ 
+ tcp port 443 or tcp port 80
+ 
+ 
+  tcp port 443 or tcp port 80 or host 192.168.0.23
+  
+  
