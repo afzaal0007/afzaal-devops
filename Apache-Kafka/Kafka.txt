@@ -49,6 +49,10 @@ Leader = with leaset node number i.e node 0 is the leader in the cluster from no
 
 Replication factor = 3, Kafka will create 3 replica of each partition
 
+JPS = Command to check the Demons are running
+
+QuromPeerMain = ZooKeeper Demon
+Kafka Deamon
 
 
 Prducer => starts with Producer.sh or Producer.bat and have Producer.properties files
@@ -57,3 +61,61 @@ Consumer => starts with Consumer.sh or COnsumer.bat and have Consumer.properties
 
 ZooKeeper => starts with ZooKeeper.sh or ZooKeeper.bat and have ZooKeeper.properties files
 
+Server.Properties for Producer = Paramters to change for Multi brokcer single node cluster
+
+Broker.id = 0 to Broker.id = 1
+
+log.directory = /tmp/kafka.log1
+
+PortNo = 9092 => PortNo = 9093
+
+
+start Kafka Server
+
+kafka-Server-Start.sh kafka/config/server.properties
+
+
+Create Topic =
+
+kafka-topics.sh --create --zookeeper localhost:2101 --replication-factor 1 --partitions 1 -- topic example1
+
+
+List Topics =
+
+kafka-topics.sh --list --zookeeper localhost:2101
+
+
+start producer =
+
+kafka-console-producer.sh --brocker-list localhost:9092 --topic example1
+
+
+start Consumer =
+
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic Example1 --from-beginning
+
+start zookeeper =
+
+zookeeper-server-start.sh kafka/config/zookeeper.properties
+
+kafka-server-start.sh kafka/config/server.properties
+
+
+broker = config/server.properties
+
+
+Multi Brocker=  
+
+cd kafka/config
+
+cp server.properties server1.properties
+cp server.properties server2.properties
+
+
+brokcer.id =1								
+listeners=PLAINTEXT://:9093
+log.dirs=/tmp/kafka-logs1
+
+brokcer.id =2
+listeners=PLAINTEXT://:9094
+log.dirs=/tmp/kafka-logs2
