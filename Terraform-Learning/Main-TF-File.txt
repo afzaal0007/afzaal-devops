@@ -1,4 +1,10 @@
-Terraform
+Terraform = Building, changing and versioning infrastucture
+
+Producation  Envirnoement , staging envirnoement, Dev Envirnoement, QA Envirnoement
+
+
+1. Information 
+
 
 Terraform = provider_resource { configs 
 key1: Value1
@@ -18,12 +24,32 @@ Delete or Comment a resource within the Main.tf file
 
 Terraform Or HCl language is declartive 
 
+Data = Data Block Refernce to an existing resource in AWS like Existing VPC, Subnet ETC.
+
+2. files and directories 
+
 
 .terraform directory contains all plugins = created in result of Terraform init command
 
 terraform.tfstate = state of the current resoruces created in the AWS or Azure = provider and all of the resources
 
+terraform.tfvars = to assign or define variables
 
+example.tfvars
+
+lock file = specific set of dependcies from cloud provider
+
+Modules = are containers for multiple resoruces that are used togeather = collection of .tf and .tf.json that are kept togeather
+
+
+Root Modules = conatining all .tf files in the main working directory
+
+
+Child modules = seprate external module erffered to from a .tf file
+
+modules for = ELK, Conule, any other third party deployment
+
+3. Commands
 
 terraform init = intialize and download the Provider plugins
 
@@ -31,7 +57,9 @@ terraform plan = Dry Run and Sainty Checking
 
 Terraform Apply = create Or Apply resources
 
-terraform apply -target aws_instance.web-server-instance = created one single resource
+terraform apply -target aws_instance.web-server-instance = created one single resourcete
+
+terraform apply -var-file example.tfvars
 
 terraform destroy 
 

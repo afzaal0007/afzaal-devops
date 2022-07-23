@@ -1,0 +1,59 @@
+Kafka
+
+Producer = Produce data
+
+Broker = Kafka Server
+
+Kafka = cluster conatins multiple brokers
+
+Producer -> Brokcer -> Consumer
+
+topic = type of data or Message = Particular data stream = topic is a logical constrcut
+
+a new message append in the tail of the topic 
+
+topic can be consider a sort of log file
+
+Partition = subsection of topic = Physical constrcut = unit of measure
+
+Distributed kafka server = distrubuted topics
+
+
+ZooKeeper = choosing the Leader or main kafka = Managing the broker and kafka cluster = 3 or 5 or should be in ODD numbers
+
+
+bocker and partitions are replicated accross cluster for FT
+
+brocker = Leaders & Followers
+
+One brooker Cloud be the Leader for One topic on the partition && Other Brocker can be a leader on another for another topic on another partition
+
+
+Broker Rack Awerness = one Az = One Zone = Idealy = Brocker.Rack.Settings
+
+Message Ordering = One Consumer can read from one Topic Partition at a time 
+
+
+Partition Key = User.ID  Or Some Unique Identifier for Producers to write data
+
+
+broker acknowlegment = acknowlegment from all brokers
+
+
+acknowledge mode in kafka
+
+duplication issues in kafka  = double ackdlegement = message duplication in kafka
+
+Leader = with leaset node number i.e node 0 is the leader in the cluster from node 0 to node 10
+
+
+Replication factor = 3, Kafka will create 3 replica of each partition
+
+
+
+Prducer => starts with Producer.sh or Producer.bat and have Producer.properties files
+
+Consumer => starts with Consumer.sh or COnsumer.bat and have Consumer.properties files
+
+ZooKeeper => starts with ZooKeeper.sh or ZooKeeper.bat and have ZooKeeper.properties files
+
