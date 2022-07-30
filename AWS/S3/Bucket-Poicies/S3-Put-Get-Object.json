@@ -1,0 +1,18 @@
+{
+    "Id": "Policy1658664600328",
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Sid": "Stmt1658664477155",
+        "Action": [
+            "s3:GetObject",
+            "s3:PutObject"
+        ],
+        "Effect": "Allow",
+        "Resource": "arn:aws:s3:::se-cost-saving",
+        "Principal": {
+            "AWS": [
+                "*"
+            ]
+        }
+    }]
+}

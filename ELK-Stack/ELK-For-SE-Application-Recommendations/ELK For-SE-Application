@@ -1,0 +1,20 @@
+ELK FOr SE-Application.com
+
+
+1. Check index name in the logstash .conf and create index in the elastic search
+
+2. Run logstash with new conf =   bin/logstash -f logstash.conf
+
+3. For Every Change to take effect , restart elastic search and kiabana
+
+
+4. GET _cluster/health
+
+5. get information about cluster = GET _NODES/STATS
+
+
+6. create an Index = PUT Indes_Name = PUT SE-Application
+
+7. ELK Cluster Security =  User Authentication & Encrypted Communication
+
+

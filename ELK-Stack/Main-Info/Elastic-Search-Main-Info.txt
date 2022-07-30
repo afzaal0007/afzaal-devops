@@ -1,0 +1,31 @@
+
+
+AWS OpenSearch Service
+
+Allow references to indices inside the body of HTTP requests = Yes
+Fielddata cache allocation = 20
+Max clause count = 1024
+
+
+
+Security configuration
+
+Fine-grained access control = Enabled = Yes
+Master user type = Internal user database
+
+
+Authentication for OpenSearch Dashboards/Kibana
+SAML enabled = No
+Cognito enabled = No
+
+
+Encryption
+Required HTTPS = Yes
+Node-to-node encryption = Yes
+Encryption at rest = Yes
+
+Public Access = Yes
+
+
+
+

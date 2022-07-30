@@ -70,19 +70,19 @@ log.directory = /tmp/kafka.log1
 PortNo = 9092 => PortNo = 9093
 
 
-start Kafka Server
+start Kafka Server/broker
 
 kafka-Server-Start.sh kafka/config/server.properties
 
 
 Create Topic =
 
-kafka-topics.sh --create --zookeeper localhost:2101 --replication-factor 1 --partitions 1 -- topic example1
+kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 -- topic example1
 
 
 List Topics =
 
-kafka-topics.sh --list --zookeeper localhost:2101
+kafka-topics.sh --list --zookeeper localhost:2181
 
 
 start producer =
@@ -119,3 +119,14 @@ log.dirs=/tmp/kafka-logs1
 brokcer.id =2
 listeners=PLAINTEXT://:9094
 log.dirs=/tmp/kafka-logs2
+
+
+start 2 broker on 1 node
+
+kafka-Server-Start.sh kafka/config/server1.properties
+kafka-Server-Start.sh kafka/config/server2.properties
+
+
+Create Topic 2 = Example2
+
+kafka-topics.sh --create -- topic example2 --zookeeper localhost:2181 --replication-factor 2 --partitions 3 

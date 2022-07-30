@@ -24,7 +24,7 @@ Delete or Comment a resource within the Main.tf file
 
 Terraform Or HCl language is declartive 
 
-Data = Data Block Refernce to an existing resource in AWS like Existing VPC, Subnet ETC.
+Data = Data Block Refernce to an existing resource in AWS like Existing VPC, Subnet ETC.
 
 2. files and directories 
 
@@ -74,4 +74,9 @@ terraform state show elastic_ip
 terraform refresh = get the output without beaing creating or modifying resources
 
 
+
+ways to manage terraform.tfstate file 
+
+1. Bitbucket/GitHub/GitLab
+2. S3
 

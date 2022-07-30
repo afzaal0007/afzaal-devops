@@ -1,0 +1,9 @@
+ELK Custer Health APi Commands
+
+
+GET _cluster/health/_all
+
+GET _cluster/health?pretty
+
+
+GET _cat/nodes?v

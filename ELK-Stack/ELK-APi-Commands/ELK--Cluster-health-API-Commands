@@ -1,0 +1,36 @@
+# ELK Custer Health APi Commands
+
+<https://www.elastic.co/guide/en/elasticsearch/reference/7.9/cluster-health.html>
+
+Cluster GET API
+
+Returns cluster-wide settings. = Non Defaults
+
+GET /_cluster/settings
+
+Returns Cluster wide Settings including Defaults
+
+GET /_cluster/settings?include_defaults
+
+GET _cluster/health/_all
+
+GET _cluster/health?pretty
+
+GET _cat/nodes?v
+
+## Nodes States API
+
+Returns cluster nodes statistics.
+
+Request
+GET /_nodes/stats
+
+GET /_nodes/<node_id>/stats
+
+GET/_nodes/stats/<metric>
+
+GET/_nodes/<node_id>/stats/<metric>
+
+GET /_nodes/stats/<metric>/<index_metric>
+
+GET /_nodes/<node_id>/stats/<metric>/<index_metric>

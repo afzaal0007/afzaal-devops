@@ -1,0 +1,77 @@
+
+
+Lambda Auto ShutDown and start
+
+Reserve Instances
+
+Right Sizing 
+
+aws instance schduler 
+Right Sizing Tools = AWS Compute Optimzer , AWS Cost Explorer Resource Optimzer, AWS Trusted Adviser
+
+Reserved Instances
+
+Delete Idle Resources
+
+S3 Intellgient tiering
+
+Compute Saving Plans
+
+Saving Plans
+
+Enterprise Plans
+
+
+Schulding
+
+
+Serverless
+
+Cost Aware Architecture
+
+auto scaing
+
+
+
+Right Size Using Performance Data: 
+
+
+Analyze performance data to right size your EC2 instances.
+Identify 
+
+1. idle instances 
+
+2. ones that are underutilized.
+
+Key metrics to look for are: 
+
+1 CPU usage 
+2.memory usage.
+3. Identify instances with a maximum CPU usage and memory usage of less than 40% over a four-week period.
+
+compute-optimized instances:
+
+
+For storage-optimized instances (I2 and D2 instance types), 
+
+1. high data IOPS, 
+
+2. focus on IOPS to see whether instances are overprovisioned.
+
+
+RDS: 
+
+analyzing performance data for Amazon RDS DB instances,following metrics 
+
+Average CPU utilization
+
+Maximum CPU utilization
+
+Minimum available RAM
+
+Average number of bytes read from disk per second
+
+Average number of bytes written to disk per second
+
+
+enhenced insfratrue metrics
