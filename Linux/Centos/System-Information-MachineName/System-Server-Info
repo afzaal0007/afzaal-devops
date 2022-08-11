@@ -1,0 +1,16 @@
+uname -a   machine info, kernal version, Uncle Sarwar Name, etc
+
+date 
+
+date +%F      output = 2022-08-02 Date in standard Formate 
+
+date +%D-%M-%Y   OutPut=08/02/22-08-2022
+
+date +%M-%Y    08-2022
+
+date +%d-%M-%Y   03-08-2022
+
+touch file-'date +%d-%M-%Y'       Create file with today's Date
+
+
+

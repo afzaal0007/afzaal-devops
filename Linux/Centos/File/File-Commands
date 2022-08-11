@@ -1,0 +1,23 @@
+touch file1 file2 file3
+
+touch file-'date +%d-%M-%Y'       Create file with today's Date
+
+touch text{1..100}.txt        create files from 1 to 100
+
+cat file1
+
+cat > file5 
+
+This is a good file. I created this file while learning linux positively :) and text will be added in the file5 from above command
+
+cat >> file5
+
+Just appending some more text to file5 and continue learning linux slowly but surely :)
+
+
+cat -n file5         Read the file with the line numbers
+
+
+cat -b file5         File with line numbers but not counting empty line
+
+

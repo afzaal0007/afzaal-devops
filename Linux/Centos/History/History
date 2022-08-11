@@ -1,0 +1,5 @@
+history      find all commands that run in this dead session 
+
+!72			execute command no 72 from history
+
+!! 			execute last command

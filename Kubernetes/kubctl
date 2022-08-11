@@ -1,0 +1,8 @@
+kubctl config view   // all cluster details
+
+kubctl config view --minify=true    // active cluster details
+
+
+
+
+

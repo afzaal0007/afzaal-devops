@@ -1,0 +1,13 @@
+cd -     change back to your last directory
+
+cd ~    go to home directory
+
+
+cd ../    go back one directory
+
+cd ../../  go back two directories
+
+
+mkdir -p Directory1/Directory2/Directory3/Directory4/Directory5
+
+rmdir EmpthyDirectoryToBeDeleted6/

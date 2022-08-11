@@ -1,4 +1,51 @@
+Change Node Name in yml to Node 1
+
+
+Enable HTTPS in nginx
+
+
+Put the FileBeat File sent by Abdullah
+
+
+
+
 ELK FOr SE-Application.com
+
+
+Elasticsearch 7.6.1, Kibana 7.6.1, Logstash 7.6.1, and Filebeat 7.6.1.
+
+ firewall configured with ufw
+ 
+ POST /_security/user/jacknich
+{
+  
+  "roles" : [ "admin", "other_role1" ],
+  
+  }
+}
+ 
+ 
+ 
+ sudo apt update
+sudo apt install nginx
+
+sudo ufw app list
+
+sudo ufw allow 'Nginx FULL'
+
+sudo ufw status
+
+systemctl status nginx
+
+sudo mkdir -p /var/www/your_domain/html
+
+Next, assign ownership of the directory with the $USER environment variable:
+
+sudo chown -R $USER:$USER /var/www/your_domain/html
+
+Rerocrd in the hosts file: se-application.com
+
+
 
 
 1. Check index name in the logstash .conf and create index in the elastic search

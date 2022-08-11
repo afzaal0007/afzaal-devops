@@ -1,0 +1,10 @@
+cp Source Destination 
+
+cp file5 Downloads/
+
+cp *.txt Downloads/
+
+cp -pv file5 Desktop/     preserve the file Properties while copying
+
+cp -Rv Downloads/ Desktop/   copy whole directy including files
+
