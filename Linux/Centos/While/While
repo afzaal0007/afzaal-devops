@@ -1,0 +1,1 @@
+while true ; do curl -sI localhost:8080 | grep Server; sleep1;done

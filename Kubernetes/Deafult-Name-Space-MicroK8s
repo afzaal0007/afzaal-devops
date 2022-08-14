@@ -1,0 +1,41 @@
+NAMESPACE     NAME                                             READY   STATUS             RESTARTS         AGE
+ingress       pod/nginx-ingress-microk8s-controller-6dllf      0/1     Pending            0                3h8m
+kube-system   pod/calico-node-gsxcv                            1/1     Running            5 (40h ago)      70d
+kube-system   pod/hostpath-provisioner-76f65f69ff-hllfq        1/1     Running            0                3h8m
+kube-system   pod/calico-kube-controllers-89995cf8c-k27h6      1/1     Terminating        40 (3h57m ago)   70d
+kube-system   pod/metrics-server-5f8f64cb86-k9fb9              0/1     Terminating        0                3h10m
+kube-system   pod/dashboard-metrics-scraper-6b6f796c8d-j8npm   0/1     Terminating        0                3h8m
+kube-system   pod/dashboard-metrics-scraper-6b6f796c8d-n6xw5   1/1     Running            21 (106m ago)    3h2m
+kube-system   pod/coredns-66bcf65bb8-5k4xz                     0/1     Running            22 (104m ago)    3h8m
+kube-system   pod/kubernetes-dashboard-765646474b-7rq4x        0/1     CrashLoopBackOff   20 (99s ago)     3h8m
+kube-system   pod/metrics-server-5f8f64cb86-7ts4m              0/1     CrashLoopBackOff   30 (96s ago)     3h2m
+kube-system   pod/calico-kube-controllers-89995cf8c-tns7k      0/1     CrashLoopBackOff   21 (99s ago)     3h2m
+kube-system   pod/calico-node-vm2qs                            0/1     Running            24 (24s ago)     3h8m
+ingress       pod/nginx-ingress-microk8s-controller-9vqfp      0/1     CrashLoopBackOff   33 (11s ago)     3h8m
+
+NAMESPACE     NAME                                TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                  AGE
+default       service/kubernetes                  ClusterIP   10.152.183.1     <none>        443/TCP                  70d
+kube-system   service/metrics-server              ClusterIP   10.152.183.117   <none>        443/TCP                  3h10m
+kube-system   service/kubernetes-dashboard        ClusterIP   10.152.183.183   <none>        443/TCP                  3h10m
+kube-system   service/dashboard-metrics-scraper   ClusterIP   10.152.183.86    <none>        8000/TCP                 3h10m
+kube-system   service/kube-dns                    ClusterIP   10.152.183.10    <none>        53/UDP,53/TCP,9153/TCP   3h9m
+
+NAMESPACE     NAME                                               DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR            AGE
+ingress       daemonset.apps/nginx-ingress-microk8s-controller   1         1         0       1            0           <none>                   3h9m
+kube-system   daemonset.apps/calico-node                         2         2         0       2            0           kubernetes.io/os=linux   70d
+
+NAMESPACE     NAME                                        READY   UP-TO-DATE   AVAILABLE   AGE
+kube-system   deployment.apps/hostpath-provisioner        1/1     1            1           3h8m
+kube-system   deployment.apps/calico-kube-controllers     0/1     1            0           70d
+kube-system   deployment.apps/coredns                     0/1     1            0           3h9m
+kube-system   deployment.apps/metrics-server              0/1     1            0           3h10m
+kube-system   deployment.apps/kubernetes-dashboard        0/1     1            0           3h10m
+kube-system   deployment.apps/dashboard-metrics-scraper   1/1     1            1           3h10m
+
+NAMESPACE     NAME                                                   DESIRED   CURRENT   READY   AGE
+kube-system   replicaset.apps/coredns-66bcf65bb8                     1         1         0       3h8m
+kube-system   replicaset.apps/hostpath-provisioner-76f65f69ff        1         1         1       3h8m
+kube-system   replicaset.apps/calico-kube-controllers-89995cf8c      1         1         0       70d
+kube-system   replicaset.apps/metrics-server-5f8f64cb86              1         1         0       3h10m
+kube-system   replicaset.apps/kubernetes-dashboard-765646474b        1         1         0       3h8m
+kube-system   replicaset.apps/dashboard-metrics-scraper-6b6f796c8d   1         1         1       3h8m

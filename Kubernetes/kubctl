@@ -1,20 +1,23 @@
+microk8s enable dashboard dns ingress
+
+
 1. cluster commands
 
-kubctl config view   // all cluster details
+kubectl config view   // all cluster details
 
-kubctl config view --minify=true    // active cluster details
+kubectl config view --minify=true    // active cluster details
 
 
-kubctl get-contexts    // number name of the clusters
+kubectl config get-contexts    // number name of the clusters
 
  
-kubctl config use-context afzaal-cluster
+kubectl config use-context afzaal-cluster
 
 
-kubctl cluster-info      // current selected cluster details
+kubectl cluster-info      // current selected cluster details
 
 
-kubctl get cs     // get cluster health
+kubectl get cs     // get cluster health
 
 
 
@@ -22,54 +25,227 @@ kubctl get cs     // get cluster health
 2. Nodes Commands
 
 
-kubctl get nodes
+kubectl get nodes
 
 
-kubctl get nodes -o wide
+kubectl get nodes -o wide
 
 
-kubctl describe node k8-cluster-machine-1
+kubectl describe node k8-cluster-machine-1
 
 
 3. Deployment commands
 
 
-kubctl run nginx --image=nginx:alpine        // deploment created with name nginx  // create one controller name Deployment => and run 1 pod name ngix
+kubectl run nginx --image=nginx:alpine        // deploment created with name nginx  // create one controller name Deployment => and run 1 pod name ngix
 
 
 
 
-kubctl get deploments
+kubectl get deploments
 
-kubctl get pods
+kubectl delete deployment DeployMent-Name
 
-kubctl get pods -o wide
+kubectl get pods
 
-kubctl describe pods
+kubectl get pods -o wide
 
-kubctl get pod  Pod_name-OR-ID -o yaml
+kubectl describe pods
 
-
-kubctl get pod  Pod_name-OR-ID -o yaml > /tmp/test.yaml
-
-
-kubctl describe deployment nginx-deploment       // get deployment details
+kubectl get pod  Pod_name-OR-ID -o yaml
 
 
+kubectl get pod  Pod_name-OR-ID -o yaml > /tmp/test.yaml
 
-kubctl get all    // get info about ReplicaSet, Deployment and Service
 
-
-kubctl get services 
+kubectl describe deployment nginx-deploment       // get deployment details
 
 
 
-kubctl -n NameSpace-Name get pods
-
-kubctl -n kube-system get pods
+kubectl get all    // get info about ReplicaSet, Deployment and Service
 
 
+kubectl get services 
+
+
+kubectl get all --all-namespaces   // get all name spaces
+
+kubectl -n NameSpace-Name get pods
+
+kubectl -n kube-system get pods
+
+
+Expose Deployment as Service
+
+kubectl expose deployment nginx --type ClusterIP
+
+
+kubectl expose deployment afzaal-deployment --type ClusterIP
+
+
+mkctl expose deployment nginx --type NodePort --port 8888
+
+
+kubectl get namespaces --show-labels
+
+
+kubectl create -f ./my-namespace.yaml
+
+my-namespace.yaml
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: afzaal-namespace
+  
+  
+  
+ kubectl exec -it POD-Name bash 
+
+ kubectl exec -it POD-Name /bin/bash 
+ 
+ 
+ kubectl logs -f POD-Nmae -c CONTinerName
+ 
+ 
+ scale deployment
+ 
+ kubctl scale deployment nginx --replicas=5
+ 
+ 
+ 
+ rolling updates
+ 
+ kubectl set image deployment nginx nginx=nginx:1.9.5 --record
+ 
+
+ rollout status
+ 
+ kubectl rollout status deployment nginx
+ 
+ 
+ rollout history
+ 
+ kubectl rollout history deployment nginx
+ 
+
+ undo deployment 
+ 
+ 
+undo roll out
+
+ kubectl rollout undo deployment nginx
+ 
+ 
+ 
+ remove taint and use all nodes as worker
+ 
+ kubectl taint nodes --all node-role.kubernetes.io/master-
+ 
+
+
+ ./generate-self-signed-certs.sh
+
+This will create `tls.*` files.
+
+
+Create  (tls type) secret for nginx:
+
+
+kubectl create secret tls nginx-certs --cert=tls.crt --key=tls.key
+
+
+
+kubectl describe secret nginx-certs
+
+
+kubectl get secret nginx-certs -o yaml
+
+
+Create a custom configuration nginx: (check support-files/  directory)
+
+
+$ cat support-files/nginx-connectors.conf
+server {
+    listen       80;
+    server_name  localhost;
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+}
+server {
+    listen       443;
+    server_name  localhost;
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+    ssl on;
+    ssl_certificate /certs/tls.crt;
+    ssl_certificate_key /certs/tls.key;
+}
 
 
 
 
+kubectl create configmap nginx-config --from-file=support-files/nginx-connectors.conf
+
+
+Examine the configmap you just created:
+
+
+kubectl describe configmap nginx-config
+
+kubectl get configmap nginx-config -o yaml
+
+
+
+Create a nginx deployment with SSL support using the secret and config map you created in the previous steps (above): (check support-files/  directory)
+
+$ cat support-files/nginx-ssl.yaml 
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      volumes:
+      - name: certs-volume
+        secret:
+          secretName: nginx-certs
+      - name: config-volume
+        configMap:
+          name: nginx-config
+      containers:
+      - name: nginx
+        image: nginx:1.15.1
+        ports:
+        - containerPort: 443
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /certs
+          name: certs-volume
+        - mountPath: /etc/nginx/conf.d
+          name: config-volume
+
+
+
+kubectl create -f nginx-ssl.yaml
+
+
+You should be able to see nginx running. Expose it as a service and curl it from your computer. You can also curl it through the multitool pod from within the cluster.
+
+
+
+ 

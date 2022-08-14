@@ -1,0 +1,6 @@
+curl -sI http://localhost
+
+
+ignore the warning (SSL - Self Signed) and show the page
+
+curl -k https://localhost

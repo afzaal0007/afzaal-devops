@@ -1,0 +1,35 @@
+microk8s enable --help
+
+microk8s enable dashboard dns ingress
+
+microk8s enable dashboard dns ingress helm3 host-access hostpath-storage metallb metrics-server prometheus rbac registry storage
+
+
+-bash: alias: kubectl”: not found
+
+
+alias mkctl="microk8s kubectl"
+
+
+mkctl get all
+
+mkctl apply -f nginx-simple-deployment.yaml
+
+mkctl delete -f nginx-simple-deployment.yaml
+
+
+mkctl get all
+
+
+mkubectl exec --stdin --tty --namespace=tools test-pod -- sh
+
+mkubectl exec --stdin --tty -multitool -- sh
+
+
+kubectl exec multitool  -i -t -- bash -il
+
+
+mkctl exec -it multitool bash
+
+
+mkctl get all --all-namespaces
