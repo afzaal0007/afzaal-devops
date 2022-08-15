@@ -1,2 +1,15 @@
 
 systemctl status sshd
+
+ssh 192.168.20.10
+
+ssh-keygen -t ed25519 -C "afzaal-key"
+
+ssh-copy-id -i ~/.ssh/id_ed25519.pub 172.16.250.133
+
+
+cd ~/.ssh
+
+cat authorize_keys
+
+

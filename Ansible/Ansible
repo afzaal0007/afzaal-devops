@@ -1,1 +1,80 @@
 Ansible
+
+1. Create Ansible SSH key 
+
+
+ssh-keygen -t ed25519 -C "Ansible key"
+
+save it in /home/afzaal/.ssh/ansiblekey
+
+do not generate a passphrase
+
+
+
+copy ansible public key to all of the servers to be managed
+
+
+ssh-copy-id -i ~/.ssh/ansiblekey.pub 172.18.233.15
+
+
+check the anible key on the servers
+
+cat ~/.ssh/authorized_keys
+
+
+make an SSH connection using ansible key
+
+ssh -i ~/.ssh/ansiblekey 172.18.233.15
+
+
+2. Create inventory file (Enter Ip Addresses OR DNS Names of the all servers to be managed)
+
+192.168.10.1
+192.168.10.2
+192.168.10.3
+192.168.10.4
+192.168.10.5
+
+
+3. Make a connection to all of the servers inside the Inventory file
+
+ansible all --key-file ~/.ssh/ansiblekey -i inventory -m ping
+
+Check for Success Messges
+
+
+4. Create Ansible config file   
+
+ansible.cfg
+
+[defaults]
+inventory = inventory
+private_key_file = ~/.ssh/ansiblekey
+
+
+5. Run ansible command again but witout key and inventory
+
+ansible all -m ping
+
+
+6. ansible all --list-hosts
+
+
+
+get all infomtaion about the hosts = Processors, OS, Envinroment varible etc.
+
+7. ansible all -m gather_facts
+
+
+ansible all -m gather_facts --limit 192.168.10.5
+
+
+
+
+
+
+
+
+
+
+

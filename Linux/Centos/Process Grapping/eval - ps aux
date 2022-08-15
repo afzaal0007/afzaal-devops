@@ -1,0 +1,3 @@
+eval $(ssh-agent)
+
+ps aux | grep 2362

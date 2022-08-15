@@ -1,1 +1,5 @@
 watch curl -s http://localhost
+
+watch dig demo.afzaal.com
+
+
