@@ -1,0 +1,15 @@
+Helm Charts
+
+1. for various applications like Databases elk etc
+
+2. templating enginge for yaml file = like microservice with different api versions or docker versions in yamls
+
+Templates.yml with place holders and values.yaml   .values.name object with properties like container engine , container image, container ports
+
+3. in CI/CD using Application Template file for pipeline and replace the values on the fly 
+
+4. Application Helm Chart to be used in the Dev, Staging , Prod Application clusters
+
+5. Release Management = Helm 2 has helm client and tiller 
+
+Tiller = holds all histroy of the applied charts and versiosns of the charts applied

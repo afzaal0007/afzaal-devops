@@ -68,9 +68,52 @@ get all infomtaion about the hosts = Processors, OS, Envinroment varible etc.
 
 ansible all -m gather_facts --limit 192.168.10.5
 
+ansible all -m gather_facts --limit 192.168.10.5 | grep anisble_distribution
+
+Update All Servers/Hosts
+
+
+Run Apt Update command on the hosts with Sudo Priviliges and password
+
+8. ansible all -m apt -a update_cahce=true --become --ask-become-pass
+
+
+install nano
+
+9. ansible all -m apt -a name=nano --become --ask-become-pass
 
 
 
+
+upgrade all packges on all servers
+
+
+9a. ansible all -m apt -a "upgrade=dist" --become --ask-become-pass
+
+
+
+
+10. ansible all -m apt -a name=snapd --become --ask-become-pass
+
+
+for more than one argument we need double quote""
+
+ansible all -m apt -a "name=snapd state=latest" --become --ask-become-pass
+
+
+
+11. install_apache.yml
+
+ansible-playbook --asks-become-pass install_apache.yml
+
+
+when run playbook:
+
+it will geather gather facts
+
+install packges
+
+Play recap
 
 
 

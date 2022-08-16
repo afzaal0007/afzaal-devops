@@ -1,0 +1,33 @@
+ingress controller
+
+deploy ingress / nginx-ingress from nginx helm chart
+
+expose traffic from out side the cluster to the services inside the cluster
+
+traffic routing is controlled by the rules define inside the ingress
+
+ingress used for:
+
+1. externally reachable URLs
+2. Load Balanced traffic
+3. Terminate SSL
+4. Name Based virtual hosting
+
+
+Nginx , HA porxy, Traefik  V2.0 , google ingress controller (based on nginx)
+
+one public IP
+
+authentication with user name and password,
+
+enable https
+
+auto genterated self sign certficate
+
+
+genetrate RBAC roles for nginx / Traefik
+
+
+
+
+

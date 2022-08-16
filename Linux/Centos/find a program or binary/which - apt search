@@ -1,0 +1,7 @@
+which nano
+
+apt search nano
+
+/var/log/apt/history   // to find the history of the installed packeges
+
+

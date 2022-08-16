@@ -1,0 +1,65 @@
+Need-For_Name_Spaces
+
+1. Seprate Application COmpoenets like Nginx , DB, ELK, etc.
+
+= Strcuture Your COmpoenets
+
+2. Staging, DEV etc Namspaces to use commonly deployed COmpoenets like nginx ELK etc in both the envinroments 
+
+= Share Services between Diffent envinroments
+
+3. Blue Green Deployments can use common deployments like nginx ELK etc.
+
+4. Seprate name spaces for seprate team working on Same Project like TeamA working on Project=VirtualTaxi and TeamB with Seprate Name space also working on the Project=VirtualTaxi  
+
+= Avoid Conflicts Between Teams
+
+5. Access and Resouce limit on NameSpaces like CPU, RAM etc. Put Resource Quotas for TeamA and TeamB
+
+= Access of Reouces and Limits  on NameSpace Level
+
+
+NameSpace Characteristics
+
+1. you can not access most of the resouces from other NameSpaces
+
+Each NameSpace should have thier own config maps & Secrets
+
+2. Config Maps in the Namspace will refenrce to the Services in other Name Space  like  Database URl => Service Named MySQL-Service.DatabaseNameSpace
+
+3. Config MaPs refenrce ELK Service or Database Service from other NameSpace
+
+
+Resouces that can not be created in the NameSpace: They live globally in K8s 
+
+1. Volumes or persistent Volumes
+2. Nodes
+
+List Resouces That are not NameSpace Bound:
+
+kubectl api-resouces --namespaced=false
+
+list resouces that are namespace bounded
+
+kubectl api-resouces --namespaced=true
+
+
+Specify Name space either during deployment creation through switch --namespace=dev-namespace
+
+or define namespace in the deployment.yml file
+
+
+kubectl apply -f mysql-configMap.yaml --namespace=dev-namespace
+
+kubectl all -n dev-namespace
+
+kubectl get configmap -n dev-namespace
+
+kubens tool for selecting the Active  NameSpace for a team, rather than using -n dev-namespace 
+
+kubens dev-namespace
+
+
+
+
+
