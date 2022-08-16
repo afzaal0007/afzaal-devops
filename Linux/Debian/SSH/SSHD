@@ -13,3 +13,12 @@ cd ~/.ssh
 cat authorize_keys
 
 
+ssh-agent bash
+
+cp ec2-key.pem ~/.ssh/
+
+ssh-add ~/.ssh/ec2-key.pem
+
+
+
+
