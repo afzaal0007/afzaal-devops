@@ -1,0 +1,4 @@
+yum list installed | grep nginx
+
+ps -ef | grep nginx
+

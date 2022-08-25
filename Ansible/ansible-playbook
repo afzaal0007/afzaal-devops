@@ -1,0 +1,9 @@
+ansible-playbook install.yaml --syntax-check
+
+default hosts.. didnt speciy any hosts group
+
+
+ansible-playbook install.yaml -i /root/hostsGroup --syntax-check
+
+
+ansible-playbook install.yaml

@@ -1,0 +1,52 @@
+permthus = metcis and lert monitoring
+
+PromQL
+
+Pull Based Metics monityoring
+
+
+
+collect data through end points
+
+
+
+Service discovery
+
+time series collection through pull model
+
+
+
+node exporteer
+
+store on local storage
+
+
+Service dediscovery => find scrp targets => collect data  => send alert through alter manager
+
+=> deshboard => grafna 
+
+
+
+
+
+
+grafna = visulaization
+
+
+monitoring solution
+
+relat time mo0ntoring = every 5 seconds
+
+
+visualize , querying, dynamic deshboard, exploer metrics and logs,  
+
+
+permteus for mertics and Lockee for Logs 
+
+
+Nodes montoring =  Node exporter 
+
+Container metrics = C-Advisor to expose mertics of containers
+
+lokee = log monitoring
+
