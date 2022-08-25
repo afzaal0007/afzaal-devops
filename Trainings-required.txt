@@ -1,12 +1,14 @@
 Need to check:
 
-certficate services
+Aws ECS, EKS, Fargate, Containers on AWS
 
-ad certifcate services
+Azure container services, Azure kubernets service, azure container service
 
-Set alarm for certficate expiry
 
-MS Deploy
+K8S cluster on GCP
+
+AWS 
+
 
 Kafaka
 

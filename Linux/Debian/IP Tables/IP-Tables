@@ -1,0 +1,6 @@
+iptable -l
+
+
+iptables -I input l -p tcp --dport 80 -i ACCEPT
+
+
