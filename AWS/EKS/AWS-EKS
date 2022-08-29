@@ -19,9 +19,19 @@ aws eks --region ap-south-1 describe-cluster --name xisys --query cluster.status
 C:\WINDOWS\system32>aws eks --region ap-south-1 update-kubeconfig --name xisys
 Added new context arn:aws:eks:ap-south-1:163647455366:cluster/xisys to C:\Users\l\.kube\config
 
+No need to user "aws eks " command we can directly run kubectl command now
 
-Now need to user "aws eks " command we can directly run kubectl command now
+aws eks update-kubeconfig --region ap-south-1  --name xisys
 
+
+
+$ aws eks get-token --cluster-name xisys | jq . | head -n4
+{
+  "kind": "ExecCredential",
+  "apiVersion": "client.authentication.k8s.io/v1beta1",
+  "spec": {},
+
+$
 
 1. Create Node Group
 

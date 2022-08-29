@@ -1,0 +1,44 @@
+rmp -qa | grep httpd
+
+sudo yum remove -y httpd*
+
+
+
+touch file1 file2 file3
+
+cat file1
+
+cat > file5 
+
+Just rubbish. Putting rubbish here in the file5. Learning linux is a long and dry journey
+
+
+cd -     change back to your last directory
+
+cd ~    go to home directory
+
+
+cd ../    go back one directory
+
+cd ../../  go back two directories
+
+
+mkdir -p Directory1/Directory2/Directory3/Directory4/Directory5
+
+
+rmdir EmpthyDirectoryToBeDeleted6/
+
+
+rm -i CanIDeleteThisFile.txt       Say yes Heaven Sake :)
+
+
+
+history      find all commands that run in this dead session 
+
+!72			execute command no 72 from history
+
+!! 			execute last command
+
+
+uname -a   machine info, kernal version, Uncle Sarwar Name, etc
+

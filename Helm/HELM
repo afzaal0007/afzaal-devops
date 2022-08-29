@@ -1,0 +1,15 @@
+helm repo add jenkins https://charts.jenkins.io
+
+helm repo add jenkinsci https://charts.jenkins.io
+
+helm repo update
+
+
+helm search jenkins
+
+helm search repo jenkins
+
+
+_acme-challenge
+
+KVtnCyHLitGcoG4uu5hlUjkf03jgrV9vY6owXIYbmUg

@@ -8,6 +8,7 @@ Pull Based Metics monityoring
 
 collect data through end points
 
+Applications Exposes END Points and Permethus collect Logs
 
 
 Service discovery
@@ -27,6 +28,7 @@ Service dediscovery => find scrp targets => collect data  => send alert through 
 
 
 
+Pull Metric
 
 
 
