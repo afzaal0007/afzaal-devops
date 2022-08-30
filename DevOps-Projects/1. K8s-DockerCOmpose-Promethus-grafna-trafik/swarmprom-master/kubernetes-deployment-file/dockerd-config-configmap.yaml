@@ -1,0 +1,17 @@
+apiVersion: v1
+data:
+  Caddyfile: |
+    :9323 {
+        proxy / {$DOCKER_GWBRIDGE_IP}:9323 {
+                transparent
+            }
+
+        errors stderr
+        tls off
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: dockerd-exporter
+  name: dockerd-config

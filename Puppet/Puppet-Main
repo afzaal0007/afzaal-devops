@@ -1,0 +1,57 @@
+Puppuet
+
+
+pull based
+
+Certs for Hand shak,
+
+Mainfest file = for comparing slaves state
+
+
+
+Puppet Catelog COnatin all resources t be placed / run on all salves
+
+
+
+Resource = Packge , Command, File
+
+
+Rerouce _type = Name of the packge or command etc
+
+Attribute = install, prenet, etc
+
+
+Package { 'nginx':
+
+ensure =>'installed'
+
+}
+
+
+
+Resouce collection or group = Mainfest file  => apply on agent or salve
+
+  
+  
+  /etc/puppet/code sudo mkdir -p envirnoments/production/mainfests
+  
+  
+  nano site.pp
+  
+  
+  
+  
+  agent / slave   sudo puppet agent -test
+  
+  
+  
+  
+  3 Componenets of Mainfest file
+  
+  
+  1. variables   $PutYourTextHere
+  2. Loops      packegs ['nginx','mysql-server']
+  3. Conditions   onlyif
+  
+  
+  

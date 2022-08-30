@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  annotations:
+    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert
+    kompose.version: 1.26.1 (a9d05d509)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: cadvisor
+  name: cadvisor
+spec:
+  selector: null
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.network/net: "true"
+        io.kompose.service: cadvisor
+    spec:
+      containers:
+        - args:
+            - -logtostderr
+            - -docker_only
+          image: google/cadvisor
+          name: cadvisor
+          resources:
+            limits:
+              memory: "134217728"
+            requests:
+              memory: "67108864"
+          volumeMounts:
+            - mountPath: /var/run/docker.sock
+              name: cadvisor-claim0
+              readOnly: true
+            - mountPath: /rootfs
+              name: cadvisor-claim1
+              readOnly: true
+            - mountPath: /var/run
+              name: cadvisor-claim2
+            - mountPath: /sys
+              name: cadvisor-claim3
+              readOnly: true
+            - mountPath: /var/lib/docker
+              name: cadvisor-claim4
+              readOnly: true
+      restartPolicy: Always
+      volumes:
+        - name: cadvisor-claim0
+          persistentVolumeClaim:
+            claimName: cadvisor-claim0
+            readOnly: true
+        - name: cadvisor-claim1
+          persistentVolumeClaim:
+            claimName: cadvisor-claim1
+            readOnly: true
+        - name: cadvisor-claim2
+          persistentVolumeClaim:
+            claimName: cadvisor-claim2
+        - name: cadvisor-claim3
+          persistentVolumeClaim:
+            claimName: cadvisor-claim3
+            readOnly: true
+        - name: cadvisor-claim4
+          persistentVolumeClaim:
+            claimName: cadvisor-claim4
+            readOnly: true
+  updateStrategy: {}
+status:
+  currentNumberScheduled: 0
+  desiredNumberScheduled: 0
+  numberMisscheduled: 0
+  numberReady: 0

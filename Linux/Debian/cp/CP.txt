@@ -1,0 +1,6 @@
+copy content of all folder afzaal to afzaal-folder
+
+
+
+cp -r afzaal afzaal-folder
+

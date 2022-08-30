@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  annotations:
+    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert
+    kompose.version: 1.26.1 (a9d05d509)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: node-exporter
+  name: node-exporter
+spec:
+  selector: null
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.network/net: "true"
+        io.kompose.service: node-exporter
+    spec:
+      containers:
+        - args:
+            - --path.sysfs=/host/sys
+            - --path.procfs=/host/proc
+            - --collector.textfile.directory=/etc/node-exporter/
+            - --collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($|/)
+            - --no-collector.ipvs
+          env:
+            - name: NODE_ID
+              value: '{{.Node.ID}}'
+          image: stefanprodan/swarmprom-node-exporter:v0.16.0
+          name: node-exporter
+          resources:
+            limits:
+              memory: "134217728"
+            requests:
+              memory: "67108864"
+          volumeMounts:
+            - mountPath: /host/proc
+              name: node-exporter-claim0
+              readOnly: true
+            - mountPath: /host/sys
+              name: node-exporter-claim1
+              readOnly: true
+            - mountPath: /rootfs
+              name: node-exporter-claim2
+              readOnly: true
+            - mountPath: /etc/nodename
+              name: node-exporter-claim3
+      restartPolicy: Always
+      volumes:
+        - name: node-exporter-claim0
+          persistentVolumeClaim:
+            claimName: node-exporter-claim0
+            readOnly: true
+        - name: node-exporter-claim1
+          persistentVolumeClaim:
+            claimName: node-exporter-claim1
+            readOnly: true
+        - name: node-exporter-claim2
+          persistentVolumeClaim:
+            claimName: node-exporter-claim2
+            readOnly: true
+        - name: node-exporter-claim3
+          persistentVolumeClaim:
+            claimName: node-exporter-claim3
+  updateStrategy: {}
+status:
+  currentNumberScheduled: 0
+  desiredNumberScheduled: 0
+  numberMisscheduled: 0
+  numberReady: 0
