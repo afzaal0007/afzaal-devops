@@ -1,0 +1,4 @@
+Full text search in ELK
+
+Query DSL = covert Complex query to Jason format
+
