@@ -1,0 +1,20 @@
+GitOps with FLUX
+
+The FASTEST way to deploy apps to Kubernetes - GitOps with FLUX
+
+
+https://docs.technotim.live/posts/flux-devops-gitops/
+
+
+Flux is an open source GitOps solution that helps your deploy app and infrastructure with automation. 
+
+
+It can monitor git repositories, 
+source control, 
+image container repositories, 
+helm repositories, and more. 
+
+It can install apps using Kustomize, Helm, Kubernetes manifests 
+
+
+https://docs.technotim.live/posts/flux-devops-gitops/
