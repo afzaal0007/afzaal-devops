@@ -1,0 +1,3 @@
+id   // to check user properties
+
+usermode -aG wheel afzaal    // add user afzaal to the wheel's group
