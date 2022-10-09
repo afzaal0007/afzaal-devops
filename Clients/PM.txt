@@ -1,0 +1,44 @@
+09-10-2022
+
+cicd for pakistan = docker swarm
+
+pakistan staging server
+
+Abdullah
+
+
+Meeting with abduallah
+
+for me = ELK issue and ELK log collection for Pre-Producation
+
+Prepare a list of all bastion host
+
+
+get your user name and password
+
+get a scan QR code from Google link
+
+
+Adeel for infrastructure
+
+ibrahim arfrat
+
+login manager...
+
+
+
+sudo docker ls
+
+dockerr service ls
+
+
+/etc/opt/docker
+
+
+/etc/opt/containerd
+
+
+
+ssh -i 
+
+

@@ -1,0 +1,11 @@
+Docker file  = 4 sections
+
+
+1. Base Image
+
+2. Install Dependendices
+
+3. Copay in Application
+
+4. Run Server
+
