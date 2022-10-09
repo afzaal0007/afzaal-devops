@@ -1,0 +1,9 @@
+ELK 
+
+
+what cause the RED Cluster Status ?
+
+Primary Shards = ?
+
+
+Restore shards steps = ?
